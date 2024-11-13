@@ -16,6 +16,7 @@ struct ContentView: View {
 
         VStack {
             Rectangle()
+            // Get Value
                 .fill(modele.backgroundColor)
                 .frame(width: 100, height: 100)
                 .border(modele.borderColor, width: 4)
@@ -26,6 +27,7 @@ struct ContentView: View {
             Button("Changer les couleurs") {
                 
                 if flip {
+                    //  Set Value
                     modele.backgroundColor = Color.green
                     modele.textColor = Color.blue
                     modele.borderColor = Color.red

@@ -10,23 +10,31 @@ import SwiftData
 
 @main
 struct SwiftTransformerApp: App {
-    var sharedModelContainer: ModelContainer = {
-        let schema = Schema([
-            Item.self,
-        ])
-        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
-
-        do {
-            return try ModelContainer(for: schema, configurations: [modelConfiguration])
-        } catch {
-            fatalError("Could not create ModelContainer: \(error)")
-        }
-    }()
+    
+    @NSApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    
+    init() {
+        // Enregistrer le ValueTransformer pour la couleur
+        ColorTransformer.register()
+    }
 
     var body: some Scene {
         WindowGroup {
             ContentView()
         }
-        .modelContainer(sharedModelContainer)
+        .modelContainer(for: MonModele.self)
+    }
+}
+
+class AppDelegate: NSObject, NSApplicationDelegate {
+    
+    func applicationWillFinishLaunching(_ notification: Notification) {
+    }
+    
+    func applicationDidFinishLaunching(_ notification: Notification) {
+    }
+    
+    func applicationShouldTerminateAfterLastWindowClosed (_ sender: NSApplication) -> Bool {
+        return true
     }
 }

@@ -1,1 +1,1 @@
-comment enregistrer dColor en SwiftData
+comment enregistrer Color en SwiftData

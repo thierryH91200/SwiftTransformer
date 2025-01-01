@@ -1,3 +1,5 @@
+“how to save Color in SwiftData.”
+
 comment enregistrer Color en SwiftData
 
 just understand how ValueTransformer and  @Attribute(.transformable(by: ColorTransformer.self)) work
@@ -59,13 +61,12 @@ class ColorTransformer: ValueTransformer {
     }
 }
 
-
-    init() {
+init() {
         // Enregistrer le ValueTransformer pour la couleur
         ColorTransformer.register()
-    }
+}
 
-Model
+@Model
 class MonModele: ObservableObject {
     // Propriétés `Data` pour stocker les couleurs
     @Attribute(.transformable(by: ColorTransformer.self)) var backgroundColor: Color

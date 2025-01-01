@@ -22,7 +22,7 @@ struct SwiftTransformerApp: App {
         WindowGroup {
             ContentView()
         }
-        .modelContainer(for: MonModele.self)
+        .modelContainer(for: EntityModel.self)
     }
 }
 
@@ -38,3 +38,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         return true
     }
 }
+
+func getSQLiteFilePath() -> String? {
+    guard FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).last != nil else { return nil}
+
+    if let url = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first {
+        let path = "Data Store file is located at: \(url.path)"
+        return path
+    }
+    return nil
+}
+

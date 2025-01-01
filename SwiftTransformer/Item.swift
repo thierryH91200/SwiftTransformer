@@ -10,14 +10,16 @@ import AppKit
 import SwiftData
 
 @Model
-class MonModele: ObservableObject {
+class EntityModel: ObservableObject {
     // Propriétés `Data` pour stocker les couleurs
-    @Attribute(.transformable(by: ColorTransformer.self)) var backgroundColor: Color
-    @Attribute(.transformable(by: ColorTransformer.self)) var textColor: Color
-    @Attribute(.transformable(by: ColorTransformer.self)) var borderColor: Color
-
+    var name: String
+    @Attribute(.transformable(by: ColorTransformer.self)) var backgroundColor: NSColor
+    @Attribute(.transformable(by: ColorTransformer.self)) var textColor: NSColor
+    @Attribute(.transformable(by: ColorTransformer.self)) var borderColor: NSColor
+    
     // Initialisateur avec des couleurs par défaut
     init() {
+        self.name = "exemple"
         // Définit des couleurs par défaut au départ
         self.backgroundColor = .green
         self.textColor = .blue
@@ -58,5 +60,16 @@ class ColorTransformer: ValueTransformer {
     
     static func register() {
         ValueTransformer.setValueTransformer(ColorTransformer(), forName: .init("ColorTransformer"))
+    }
+}
+
+// Extension pour convertir SwiftUI Color en NSColor
+extension NSColor {
+    static func fromSwiftUIColor(_ color: Color) -> NSColor {
+        if let cgColor = color.cgColor {
+            return NSColor(cgColor: cgColor) ?? NSColor.black
+        } else {
+            return NSColor.black
+        }
     }
 }

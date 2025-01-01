@@ -1,0 +1,26 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "Change the colors" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Changer les couleurs"
+          }
+        }
+      }
+    },
+    "Text Example" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Texte exemple"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

@@ -31,7 +31,7 @@ struct ContentView: View {
                 .frame(width: 100, height: 100)
                 .border(Color(modele.borderColor), width: 4)
 
-            Text("Text Example")
+            Text(modele.name)
                 .foregroundColor(Color(modele.textColor))
             
             Button("Change the colors") {

@@ -12,6 +12,7 @@
       }
     },
     "Text Example" : {
+      "extractionState" : "stale",
       "localizations" : {
         "fr" : {
           "stringUnit" : {

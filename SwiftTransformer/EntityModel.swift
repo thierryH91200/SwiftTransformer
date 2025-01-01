@@ -19,11 +19,11 @@ class EntityModel: ObservableObject {
     
     // Initialisateur avec des couleurs par défaut
     init() {
-        self.name = "exemple"
+        self.name = "exemple1"
         // Définit des couleurs par défaut au départ
-        self.backgroundColor = .green
-        self.textColor = .blue
-        self.borderColor = .red
+        self.backgroundColor = NSColor.green
+        self.textColor = NSColor.blue
+        self.borderColor = NSColor.red
     }
 }
 
